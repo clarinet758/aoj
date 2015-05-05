@@ -14,11 +14,31 @@ using namespace std;
 
 int main(){
     double pai=3.141592653589;
-    int a,b,c,ans=0;
-    scanf("%d %d %d",&a,&b,&c);
-    for(int i=a;i<=b;i++){
-        if(c%i==0) ans++;
+    int n,b,f,r,v;
+    int room[4][3][10];
+    scanf("%d",&n);
+    for(int i=0;i<4;i++){
+        for(int j=0;j<3;j++){
+            for(int k=0;k<10;k++){
+                room[i][j][k]=0;
+            }
+        }
     }
-    printf("%d\n",ans);
+    for(int i=0;i<n;i++){
+        scanf("%d %d %d %d",&b,&f,&r,&v);
+        room[b-1][f-1][r-1]+=v;
+    }
+    for(int i=0;i<4;i++){
+        for(int j=0;j<3;j++){
+            for(int k=0;k<10;k++){
+                printf(" %d",room[i][j][k]);
+            }
+            if(j!=2 || (j==2 && i==3)){
+                printf("\n");
+            }else if(i!=3){
+                printf("\n####################\n");
+            }
+        }
+    }
     return 0;
 }
