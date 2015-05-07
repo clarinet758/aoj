@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<string>
 #include<vector>
 #include<algorithm>
 using namespace std;
@@ -14,10 +15,13 @@ using namespace std;
 
 int main(){
     double pai=3.141592653589;
-    int a,chk;
-    string s,s2,p;
-    cin >> s >> p;
-    s2=s+s;
+    char s[100], p[100];
+    string scp="", s2="",chk="";
+    scanf("%s",&s);
+    scanf("%s",&p);
+    scp=s;
+    chk=p;
+    s2=scp+scp;
     size_t pos = s2.find(p);
     if(pos != string::npos){
         printf("Yes\n");
