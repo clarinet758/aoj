@@ -14,11 +14,15 @@ using namespace std;
 
 int main(){
     double pai=3.141592653589;
-    int a,b,c,ans=0;
-    scanf("%d %d %d",&a,&b,&c);
-    for(int i=a;i<=b;i++){
-        if(c%i==0) ans++;
+    int a,chk;
+    string s,s2,p;
+    cin >> s >> p;
+    s2=s+s;
+    size_t pos = s2.find(p);
+    if(pos != string::npos){
+        printf("Yes\n");
+    }else{
+        printf("No\n");
     }
-    printf("%d\n",ans);
     return 0;
 }
