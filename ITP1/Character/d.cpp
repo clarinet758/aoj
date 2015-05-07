@@ -16,14 +16,12 @@ using namespace std;
 int main(){
     double pai=3.141592653589;
     char s[100], p[100];
-    string scp="", s2="",chk="";
-    scanf("%s",&s);
-    scanf("%s",&p);
+    string scp,s2,chk;
+    scanf("%s %s",&s,&p);
     scp=s;
     chk=p;
     s2=scp+scp;
-    size_t pos = s2.find(p);
-    if(pos != string::npos){
+    if(s2.find(p) != string::npos){
         printf("Yes\n");
     }else{
         printf("No\n");
