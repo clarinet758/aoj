@@ -16,34 +16,19 @@ xy=[(1,0),(-1,0),(0,1),(0,-1)]
 bs=[(-1,-1),(-1,1),(1,1),(1,-1)]
 #start = time.clock()
 ans=chk=0
-a=[0,2,5,3]
-b=[0,1,5,4]
-c=[1,2,4,3]
+p=[0,2,5,3]
+q=[0,1,5,4]
+r=[1,2,4,3]
 
-def rolling(word,dice):
-    if word=='S':
-        dice[0],dice[1],dice[5],dice[4]=dice[4],dice[0],dice[1],dice[5]
-    elif word=='N':
-        dice[0],dice[1],dice[5],dice[4]=dice[1],dice[5],dice[4],dice[0]
-    elif word=='W':
-        dice[0],dice[2],dice[5],dice[3]=dice[2],dice[5],dice[3],dice[0]
-    else:
-        dice[0],dice[2],dice[5],dice[3]=dice[3],dice[0],dice[2],dice[5]
-    return dice
-
-def sortdice(dice1,dice2,p,q,r):
-    for i in range(4):
-        dice1[p[0]],dice1[p[1]],dice1[p[2]],dice1[p[3]]=dice1[p[1]],dice1[p[2]],dice1[p[3]],dice1[p[0]]
-        for j in range(4):
-            dice1[q[0]],dice1[q[1]],dice1[q[2]],dice1[q[3]]=dice1[q[1]],dice1[q[2]],dice1[q[3]],dice1[q[0]]
-            for k in range(4):
-                dice1[r[0]],dice1[r[1]],dice1[r[2]],dice1[r[3]]=dice1[r[1]],dice1[r[2]],dice1[r[3]],dice1[r[0]]
-                if dice1==dice2:
-                    print 'Yes'
-                    exit()
-    return 0
-
-l1=map(int,raw_input().split())
-l2=map(int,raw_input().split())
-sortdice(l1,l2,a,b,c)
+dice1=map(int,raw_input().split())
+dice2=map(int,raw_input().split())
+for i in range(4):
+    dice1[p[0]],dice1[p[1]],dice1[p[2]],dice1[p[3]]=dice1[p[1]],dice1[p[2]],dice1[p[3]],dice1[p[0]]
+    for j in range(4):
+        dice1[q[0]],dice1[q[1]],dice1[q[2]],dice1[q[3]]=dice1[q[1]],dice1[q[2]],dice1[q[3]],dice1[q[0]]
+        for k in range(4):
+            dice1[r[0]],dice1[r[1]],dice1[r[2]],dice1[r[3]]=dice1[r[1]],dice1[r[2]],dice1[r[3]],dice1[r[0]]
+            if dice1==dice2:
+                print 'Yes'
+                exit()
 print 'No'
