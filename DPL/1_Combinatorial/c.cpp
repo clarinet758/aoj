@@ -20,9 +20,6 @@ int main(){
             }
         }
     }
-    for(int i=0;i<W+1;i++){
-        ans=max(ans,dp[i]);
-    }
-    printf("%d\n",ans);
+    printf("%d\n",*max_element(dp.begin(),dp.end()));
     return 0;
 }
