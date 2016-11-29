@@ -14,14 +14,11 @@ using namespace std;
 
 int main(){
     double pai=3.141592653589;
-    int a,b;
-    scanf("%d %d",&a,&b);
-    if(a>b){
-        printf("a > b\n");
-    }else if(a<b){
-        printf("a < b\n");
-    }else{
-        printf("a == b\n");
+    vector<int> v(3);
+    for (auto&e:v) {
+        scanf("%d",&e);
     }
+    sort(v.begin(),v.end());
+    printf("%d %d %d\n",v[0],v[1],v[2]);
     return 0;
 }
