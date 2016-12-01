@@ -14,7 +14,7 @@ using namespace std;
 
 int main(){
     double pai=3.141592653589;
-    for(int i=0;i<1000;i++){
+    for (int i=0;i<1000;i++) {
         printf("Hello World\n");
     }
     return 0;
