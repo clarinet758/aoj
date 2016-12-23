@@ -6,11 +6,11 @@
 #include<algorithm>
 using namespace std;
 
+#define PI 3.1415926535897932
 
 int main(){
     int a,b,theta=90;
-    double x=0,y=0,pi=3.141592653589;
-    char k;
+    double x=0,y=0,pi=PI;
     for(;;){
         scanf("%d,%d",&a,&b);
         if(a==0 && b==0){

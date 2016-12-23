@@ -10,10 +10,10 @@ using namespace std;
 
 int main(){
     double a,b,c,d,e,f;
-    vector<double> tmp(2);
     while(scanf("%lf %lf %lf %lf %lf %lf",&a,&b,&c,&d,&e,&f)!=EOF){
-        double x=(c*e-f*b)/(a*e-d*b);
+        double x=(c*e-b*f)/(a*e-b*d);
         double y=(c-a*x)/b;
+        
         if(abs(x)<1e-10){
             x=0;
         }
