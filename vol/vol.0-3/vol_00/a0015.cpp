@@ -11,6 +11,7 @@ int main(){
     int t;
     scanf("%d",&t);
     while(t--){
+        //文字列扱いで受け取る
         char c1[1000],c2[1000];
         scanf("%s",&c1);
         scanf("%s",&c2);
@@ -20,6 +21,7 @@ int main(){
             printf("0\n");
             continue;
         }
+        //反転させて0埋めで桁数を合わせる
         reverse(s1.begin(),s1.end());
         reverse(s2.begin(),s2.end());
         int n=max(s1.size(),s2.size())+1;
@@ -30,6 +32,8 @@ int main(){
             s2+='0';
         }
         string res;
+
+        //bは繰上げがあるときの対策用
         int b=0;
         for(int i=0;i<max(s1.size(),s2.size());i++){
             int u=s1[i]-'0'+s2[i]-'0'+b;
@@ -37,8 +41,11 @@ int main(){
             res+=u+'0';
         }
 
+       
         reverse(res.begin(),res.end());
         string res2;
+
+        //先頭部分側の0は使わない、0以外の数字が出たとこから答え用文字列に付け足す
         int j=0;
         while(res[j]=='0') j++;
         for(;j<res.size();j++){
