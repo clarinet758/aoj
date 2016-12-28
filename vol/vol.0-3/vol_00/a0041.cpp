@@ -30,7 +30,7 @@ bool sol(int a,int b,int c) {
         return true;
     }
     if (cal(cal(d[0],a,d[1]),b, cal(d[2],c,d[3]))==10) {
-        printf("(((%d %c %d) %c (%d %c %d)\n",d[0],op[a],d[1],op[b],d[2],op[c],d[3]);
+        printf("((%d %c %d) %c (%d %c %d))\n",d[0],op[a],d[1],op[b],d[2],op[c],d[3]);
         return true;
     }
     if (cal(cal(d[0],a, cal(d[1],b,d[2])),c,d[3])==10) {
@@ -56,6 +56,7 @@ int main(){
     for (;;) {
         scanf("%d %d %d %d",&d[0],&d[1],&d[2],&d[3]);
         if (d[0]==d[1] && d[1]==d[2] && d[2]==d[3] && d[0]==0) break;
+        sort(d,d+4);
         do {
             if (jg()) break;
         } while (next_permutation(d,d+4));
