@@ -9,14 +9,6 @@
 #include<complex>
 using namespace std;
 
-typedef complex<double> P;
-
-#define X real()
-#define Y imag()
-typedef int kz;
-
-kz gcd(kz a,kz b) { if(b==0) return a; else gcd(b,a%b); }
-
 bool sol(double xa,double ya,double xb,double yb,double xc,double yc,double xd,double yd) {
     if (abs((yb-ya)*(yd-yc)+(xb-xa)*(xd-xc))<1e-10) return true;
     return false;
