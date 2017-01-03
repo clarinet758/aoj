@@ -1,19 +1,6 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<list>
-#include<stack>
-#include<queue>
 #include<algorithm>
 using namespace std;
-
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- **/
 
 char sute[1];
 char m[8][8];
@@ -36,7 +23,6 @@ void bomb(int i,int j){
 }
 
 int main(){
-    int mod=1000000007;
     int n,cnt=1,x,y;
     scanf("%d",&n);
     for (int i=0;i<n;++i){
