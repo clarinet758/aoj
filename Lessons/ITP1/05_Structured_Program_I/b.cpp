@@ -1,34 +1,21 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
-
 int main(){
-    double pai=3.141592653589;
     int h,w;
-    for(;;){
+    for (;;) {
         scanf("%d %d",&h,&w);
-        if(h==0 && w==0) break;
-        for(int i=0;i<h;i++){
-            for(int j=0;j<w;j++){
-                if(i==0 || i==h-1 || j==0 || j==w-1){
-                    printf("#");
-                }else{
-                    printf(".");
-                }
+        if (h==0) break;
+        for (int i=0;i<w;i++) printf("#");
+        printf("\n");
+        for (int j=0;j<h-2;j++) {
+            for (int i=0;i<w;i++) {
+                printf("%c",(i==0 || i==w-1)?'#':'.');
             }
             printf("\n");
         }
-        printf("\n");
+        for (int i=0;i<w;i++) printf("#");
+        printf("\n\n");
     }
     return 0;
 }
