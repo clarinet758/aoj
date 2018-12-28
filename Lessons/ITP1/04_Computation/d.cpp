@@ -1,31 +1,14 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
-
 int main(){
-    double pai=3.141592653589;
-    int a;
-    long long s=0;
-    scanf("%d",&a);
-    vector<long>ar(a);
-    for(auto&e:ar){
-        scanf("%ld",&e);
-    }
-    sort(ar.begin(),ar.end());
-    //s=accumulate(ar.begin(),ar.end(),0);
-    for(int i=0;i<a;i++){
-        s+=ar[i];
-    }
-    printf("%ld %ld %lld\n",ar[0],ar[a-1],s);
+    int n;
+    long long sum=0;
+    scanf("%d",&n);
+    vector<int> a(n);
+    for (int i=0;i<n;i++) scanf("%d", &a[i]);
+    sort(a.begin(),a.end());
+    for (int i=0;i<n;i++) sum+=a[i];
+    printf("%d %d %lld\n",a[0],a[n-1],sum);
     return 0;
 }

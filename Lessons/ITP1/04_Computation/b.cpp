@@ -1,21 +1,11 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define PI 3.1415926535897932
 
 int main(){
-    double pai=3.141592653589;
     double r;
     scanf("%lf",&r);
-    printf("%.8lf %.8lf\n",r*r*pai,r*2*pai);
+    printf("%.10lf %.10lf\n",r*r*PI, r*2*PI);
     return 0;
 }
