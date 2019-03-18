@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int main(){
-    int W,H,x,y,r;
-    scanf("%d %d %d %d %d",&W,&H,&x,&y,&r);
-    printf("%s\n",((0<=y-r && H>=y+r) && (0<=x-r && W>=x+r))?"Yes":"No");
+    int w,h,x,y,r;
+    scanf("%d%d%d%d%d",&w,&h,&x,&y,&r);
+    printf("%s\n",((x-r>=0 && y-r>=0) && (x+r<=w && y+r<=h))?"Yes":"No");
     return 0;
 }

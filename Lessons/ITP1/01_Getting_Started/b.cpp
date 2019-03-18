@@ -2,8 +2,8 @@
 using namespace std;
 
 int main(){
-    int x;
-    scanf("%d",&x);
-    printf("%d\n",x*x*x);
+    int n;
+    scanf("%d",&n);
+    printf("%d\n",n*n*n);
     return 0;
 }
