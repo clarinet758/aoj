@@ -7,6 +7,6 @@ int main(){
         scanf("%d",&n);
         if (n==0) break;
         printf("Case %d: %d\n",i,n);
-    } 
+    }
     return 0;
 }

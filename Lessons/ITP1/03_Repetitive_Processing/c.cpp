@@ -5,8 +5,8 @@ int main(){
     int x,y;
     for (;;) {
         scanf("%d %d",&x,&y);
-        if (x==0 && x==y) break;
+        if (x+y==0) break;
         printf("%d %d\n",min(x,y),max(x,y));
-    } 
+    }
     return 0;
 }
