@@ -6,8 +6,8 @@ int main(){
     for (;;) {
         scanf("%d %d",&h,&w);
         if (h==0) break;
-        for (int i=0;i<h;i++) {
-            for (int j=0;j<w;j++) {
+        for (int j=0;j<h;j++) {
+            for (int k=0;k<w;k++) {
                 printf("#");
             }
             printf("\n");
