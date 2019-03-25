@@ -3,14 +3,14 @@ using namespace std;
 
 int main(){
     int a,b;
-    char o[1];
+    char op[1];
     for (;;) {
-        scanf("%d %c %d",&a,o,&b);
-        if (o[0]=='?') break;
-        if (o[0]=='+') printf("%d\n",a+b);
-        else if (o[0]=='-') printf("%d\n",a-b);
-        else if (o[0]=='*') printf("%d\n",a*b);
-        else if (o[0]=='/') printf("%d\n",a/b);
+        scanf("%d %c %d",&a,op,&b);
+        if (op[0]=='?') break;
+        if (op[0]=='+') printf("%d\n",a+b);
+        if (op[0]=='-') printf("%d\n",a-b);
+        if (op[0]=='/') printf("%d\n",a/b);
+        if (op[0]=='*') printf("%d\n",a*b);
     }
     return 0;
 }
