@@ -6,6 +6,6 @@ using namespace std;
 int main(){
     double r;
     scanf("%lf",&r);
-    printf("%.8lf %.8lf\n",r*r*PI,r*2*PI);
+    printf("%.10lf %.10lf\n",r*r*PI,2*r*PI);
     return 0;
 }
