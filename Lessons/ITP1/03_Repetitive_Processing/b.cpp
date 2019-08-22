@@ -2,11 +2,11 @@
 using namespace std;
 
 int main(){
-    int n;
-    for (int i=1;;i++) {
-        scanf("%d",&n);
-        if (n==0) break;
-        printf("Case %d: %d\n",i,n);
+    for(int i=1;i<10001;i++) {
+        int x;
+        scanf("%d",&x);
+        if (x==0) break;
+        printf("Case %d: %d\n",i,x);
     }
     return 0;
 }
