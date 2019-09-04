@@ -5,14 +5,14 @@ int main(){
     int h,w;
     for (;;) {
         scanf("%d %d",&h,&w);
-        if (h==0) break;
-        for (int j=0;j<h;j++) {
-            for (int k=0;k<w;k++) {
-                printf("#");
+        if (h==0 && w==0) break;
+        for (int i=0;i<h;i++) {
+            for (int j=0;j<w;j++) {
+                if (j<w-1) printf("#");
+                else printf("#\n");
             }
-            printf("\n");
         }
-        printf("\n");
+        puts("");
     }
     return 0;
 }
