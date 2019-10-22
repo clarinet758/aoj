@@ -1,22 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
+
 int main(){
     int mod=1000000007;
-    int n,b,f,r,v;
-    int d[4][3][10];
-    for (int i=0;i<4;i++) for (int j=0;j<3;j++) for (int k=0;k<10;k++) d[i][j][k]=0;
-    scanf("%d",&n);
-    for (int i=0;i<n;i++) {
+    int n,m,ans;
+    sc1(n);
+    int room[4][3][10];
+    rep(i,4) rep(j,3) rep(k,10) room[i][j][k]=0;
+    rep (i,n) {
+        int b,f,r,v;
         scanf("%d %d %d %d",&b,&f,&r,&v);
-        d[b-1][f-1][r-1]+=v;
+        room[b-1][f-1][r-1]+=v;
     }
-    for (int i=0;i<4;i++) {
-        for (int j=0;j<3;j++) {
-            for (int k=0;k<10;k++) {
-                printf(" %d",d[i][j][k]);
-                if (k==9) printf("\n");
+    rep(i,4) {
+        rep(j,3) {
+            rep(k,10) {
+                printf(" %d",room[i][j][k]);
             }
+            puts("");
         }
         if (i<3) printf("####################\n");
     }
