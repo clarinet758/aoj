@@ -1,33 +1,23 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
 
 int main(){
-    double pai=3.141592653589;
-    int cnt[26];
-    char c;
-    for(int i=0;i<26;i++){
-        cnt[i]=0;
+    char a;
+    int w[30]={0};
+    while (scanf("%c",&a)!=EOF)  {
+        if (isupper(a)) w[a-'A']+=1;
+        else if (islower(a)) w[a-'a']+=1;
     }
-    while(scanf("%c",&c)!=EOF){
-        if(isupper(c)){
-            cnt[static_cast<int>(c)-65]+=1;
-        }else if(islower(c)){
-            cnt[static_cast<int>(c)-97]+=1;
-        }
-    }
-    for(int i=0;i<26;i++){
-        printf("%c : %d\n",static_cast<char>(i+97),cnt[i]);
-    }
+    rep(i,26)  printf("%c : %d\n",i+'a',w[i]);
     return 0;
 }
