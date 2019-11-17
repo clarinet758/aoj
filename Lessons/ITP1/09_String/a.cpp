@@ -1,33 +1,28 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
 
 int main(){
-    double pai=3.141592653589;
-    char chk[10], t[1000];
     int ans=0;
-    string ask,tmp;
-    scanf("%s",&chk);
-    ask=chk;
-    transform(ask.begin(),ask.end(),ask.begin(),::toupper);
-    for(;;){
-        scanf("%s",&t);
-        tmp=t;
-        if(tmp=="END_OF_TEXT") break;
-        transform(tmp.begin(),tmp.end(),tmp.begin(),::toupper);
-        if(tmp==ask){
-            ans++;
-        }
+    char w[11];
+    char t[1001];
+    scanf("%s",w);
+    int ww=strlen(w);
+    for (;;) {
+        scanf("%s",t);
+        if (!strcmp(t,"END_OF_TEXT")) break;
+        int tt=strlen(t);
+        for (int j=0;j<tt;j++) if (isupper(t[j])) t[j]=t[j]+32;
+        if (!strcmp(t,w)) ans++;
     }
     printf("%d\n",ans);
     return 0;

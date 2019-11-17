@@ -1,36 +1,26 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
 
 int main(){
-    double pai=3.141592653589;
-    int n,taro=0,hanako=0;
-    char t[100],h[100];
-    string tarostr,hanakostr;
-    scanf("%d",&n);
-    for(int i=0;i<n;i++){
-        scanf("%s %s",&t,&h);
-        tarostr=t;
-        hanakostr=h;
-        if(tarostr==hanakostr){
-            taro++;
-            hanako++;
-        }else if(tarostr<hanakostr){
-            hanako+=3;
-        }else{
-            taro+=3;
-        }
+    int n,x=0,y=0;
+    sc1(n);
+    rep(i,n) {
+        char a[101],b[101];
+        scanf("%s %s",a,b);
+        if (strcmp(a,b)>0)  x+=3;
+        else if (strcmp(a,b)<0) y+=3;
+        else { x++; y++; }
     }
-    printf("%d %d\n",taro,hanako);
+    printf("%d %d\n",x,y);
     return 0;
 }
