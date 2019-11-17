@@ -1,49 +1,39 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
 
 int main(){
-    double pai=3.141592653589;
+    int mod=1000000007;
     int n;
-    int x[1000],y[1000];
-    double ans1=0,ans2=0,ans3=0,ans4=0,anstmp=0,tmp;
-    scanf("%d",&n);
-    for(int i=0;i<2;i++){
-        for(int j=0;j<n;j++){
-            if(i==0) scanf("%d",&x[j]);
-            else scanf("%d",&y[j]);
-        }
-    }
-    for(int i=0;i<n;i++){
-        ans1+=abs(x[i]-y[i]);
-    }
-    printf("%.8lf\n",ans1);
-    for(int i=0;i<n;i++){
-        ans2+=(x[i]-y[i])*(x[i]-y[i]);
-    }
-    printf("%.8lf\n",pow(ans2,1.0/2.0));
+    double t=0.0;
+    sc1(n);
+    vector<int> a(n);
+    vector<int> b(n);
+    for(auto&e:a) sc1(e);
+    for(auto&e:b) sc1(e);
+    rep(i,n) t+=abs(a[i]-b[i])*1.0;
+    printf("%.15lf\n",t);
+    t=0.0;
 
-    for(int i=0;i<n;i++){
-        tmp=abs(x[i]-y[i]);
-        ans3+=tmp*tmp*tmp;
-    }
-    printf("%.8lf\n",pow(ans3,1.0/3.0));
+    rep(i,n) t+=pow((a[i]-b[i]),2)*1.0;
+    printf("%.15lf\n",sqrt(t));
+    t=0.0;
 
-    for(int i=0;i<n;i++){
-        anstmp=abs(x[i]-y[i]);
-        ans4=max(ans4,anstmp);
-    }
-    printf("%.8lf\n",ans4);
+    rep(i,n) t+=pow(abs(a[i]-b[i]),3)*1.0;
+    printf("%.15lf\n",pow(t,1.0/3.0));
+    t=0.0;
 
+    rep(i,n) t=max(t,abs(a[i]-b[i])*1.0);
+    printf("%.15lf\n",t);
+    t=0.0;
     return 0;
 }
