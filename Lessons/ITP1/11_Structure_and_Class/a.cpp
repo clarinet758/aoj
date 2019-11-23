@@ -1,53 +1,51 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
-void solve(){
-}
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
+
 int main(){
-    double pai=3.141592653589;
-    int dice[6],tmp;
-    char c[100];
-    for(int i=0;i<6;i++){
-        scanf("%d",&dice[i]);
-    }
-    scanf("%s",&c);
-    for(int i=0;c[i];i++){
-        if(c[i]=='S'){
-            tmp=dice[4];
-            dice[4]=dice[5];
-            dice[5]=dice[1];
-            dice[1]=dice[0];
-            dice[0]=tmp;
-        }else if(c[i]=='N'){
-            tmp=dice[1];
-            dice[1]=dice[5];
-            dice[5]=dice[4];
-            dice[4]=dice[0];
-            dice[0]=tmp;
-        }else if(c[i]=='W'){
-            tmp=dice[2];
-            dice[2]=dice[5];
-            dice[5]=dice[3];
-            dice[3]=dice[0];
-            dice[0]=tmp;
-        }else if(c[i]=='E'){
-            tmp=dice[3];
-            dice[3]=dice[5];
-            dice[5]=dice[2];
-            dice[2]=dice[0];
-            dice[0]=tmp;
+    int n,m,ans;
+    char s[100];
+    vector <int> d(6);
+    for(auto&e:d) sc1(e);
+    scanf("%s",s);
+    n=strlen(s);
+    rep(i,n) {
+        int tmp;
+        if (s[i]=='N') {
+            tmp=d[0];
+            d[0]=d[1];
+            d[1]=d[5];
+            d[5]=d[4];
+            d[4]=tmp;
+        } else if (s[i]=='W') {
+            tmp=d[0];
+            d[0]=d[2];
+            d[2]=d[5];
+            d[5]=d[3];
+            d[3]=tmp;
+        } else if (s[i]=='E') {
+            tmp=d[0];
+            d[0]=d[3];
+            d[3]=d[5];
+            d[5]=d[2];
+            d[2]=tmp;
+        } else {
+            tmp=d[0];
+            d[0]=d[4];
+            d[4]=d[5];
+            d[5]=d[1];
+            d[1]=tmp;
         }
     }
-    printf("%d\n",dice[0]);
+    printf("%d\n",d[0]);
     return 0;
 }

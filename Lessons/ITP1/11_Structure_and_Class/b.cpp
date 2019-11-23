@@ -1,40 +1,37 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define per(i,n)  for(int i=n-1;i>=0;--i)
+#define sc1(a)  scanf("%d",&a)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
+#define sl1(a)  scanf("%lld",&a)
+#define sl2(a,b)  scanf("%lld %lld",&a,&b)
+#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
+#define PI 3.1415926535897932
 
 int main(){
-    double pai=3.141592653589;
-    int dice[6],q;
-    char c;
-    for(int i=0;i<6;i++){
-        scanf("%d",&dice[i]);
-    }
-    scanf("%d",&q);
-    for(int i=0;i<q;i++){
-        int x,y;
-        scanf("%d %d",&x,&y);
-        if((x==dice[5] && y==dice[4])||(x==dice[4] && y==dice[0])||(x==dice[0] && y==dice[1])||(x==dice[1] && y==dice[5])){
-            printf("%d\n",dice[2]);
-        }else if((x==dice[0] && y==dice[2])||(x==dice[2] && y==dice[5])||(x==dice[5] && y==dice[3])||(x==dice[3] && y==dice[0])){
-            printf("%d\n",dice[4]);
-        }else if((x==dice[5] && y==dice[1])||(x==dice[1] && y==dice[0])||(x==dice[0] && y==dice[4])||(x==dice[4] && y==dice[5])){
-            printf("%d\n",dice[3]);
-        }else if((x==dice[0] && y==dice[3])||(x==dice[3] && y==dice[5])||(x==dice[5] && y==dice[2])||(x==dice[2] && y==dice[0])){
-            printf("%d\n",dice[1]);
-        }else if((x==dice[2] && y==dice[1])||(x==dice[1] && y==dice[3])||(x==dice[3] && y==dice[4])||(x==dice[4] && y==dice[2])){
-            printf("%d\n",dice[5]);
-        }else{
-            printf("%d\n",dice[0]);
+    int n,m,ans;
+    vector <int> d(6);
+    for(auto&e:d) sc1(e);
+    sc1(n);
+    rep(i,n) {
+        int a,b;
+        sc2(a,b);
+        //if ((a==1 && b==2)||(a==2 && b==6)||(a==6 && b==5) || (a==5 && b==1)) {
+        if ((a==d[0] && b==d[1])||(a==d[1] && b==d[5])||(a==d[5] && b==d[4]) || (a==d[4] && b==d[0])) {
+            printf("%d\n",d[2]);
+        } else if ((a==d[0] && b==d[4])||(a==d[4] && b==d[5])||(a==d[5] && b==d[1]) || (a==d[1] && b==d[0])) {
+            printf("%d\n",d[3]);
+        } else if ((a==d[0] && b==d[3])||(a==d[3] && b==d[5])||(a==d[5] && b==d[2]) || (a==d[2] && b==d[0])) {
+            printf("%d\n",d[1]);
+        } else if ((a==d[0] && b==d[2])||(a==d[2] && b==d[5])||(a==d[5] && b==d[3]) || (a==d[3] && b==d[0])) {
+            printf("%d\n",d[4]);
+        } else if ((a==d[2] && b==d[1])||(a==d[1] && b==d[3])||(a==d[3] && b==d[4]) || (a==d[4] && b==d[2])) {
+            printf("%d\n",d[5]);
+        } else {
+            printf("%d\n",d[0]);
         }
     }
     return 0;
