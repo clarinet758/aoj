@@ -1,39 +1,21 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
-int gcd(int a,int b){
-    int tmp;
-    if(a<b){
-        tmp=a;
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+
+int gcd(int a,int b) {
+    if (a<b) swap(a,b);
+    while (b>0) {
+        int c=a%b;
         a=b;
-        b=tmp;
+        b=c;
     }
-    for(;;){
-        if(a%b==0) break;
-        tmp=a%b;
-        a=b;
-        b=tmp;
-    }
-    return b;
+    return a;
 }
 
-
-
-
 int main(){
-    double pai=3.141592653589;
-    long x,y,ans;
-    scanf("%ld %ld",&x,&y);
-    printf("%ld\n",gcd(x,y));
+    int x,y;
+    sc2(x,y);
+    printf("%d\n",std::__gcd(x,y));
     return 0;
 }

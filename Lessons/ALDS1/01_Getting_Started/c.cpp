@@ -1,34 +1,31 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
-bool check(int x){
-    int i=2;
-    while(i*i<=x){
-        if(x%i==0) return false;
-        i++;
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
+
+int isp(int x) {
+    if (x==2) {
+        return 1;
+    } else if (x%2==0) {
+        return 0;
     }
-    return true;
+    int i=3;
+    while (i*i<=x) {
+        if (x%i==0) return 0;
+        i+=2;
+    }
+    return 1;
 }
 
 int main(){
-    double pai=3.141592653589;
-    int n,k,ans=0;
-    scanf("%d",&n);
-    for(int i=0;i<n;i++){
-        scanf("%d",&k);
-        if(check(k)){
-            ans++;
-        }
+    int mod=1000000007;
+    int n,ans=0;
+    sc1(n);
+    rep(i,n) {
+        int x;
+        sc1(x);
+        ans+=isp(x);
     }
     printf("%d\n",ans);
     return 0;
