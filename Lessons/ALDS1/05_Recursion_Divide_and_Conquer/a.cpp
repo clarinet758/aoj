@@ -1,40 +1,32 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<list>
-#include<stack>
-#include<queue>
-#include<algorithm>
 using namespace std;
 
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
 
 int main(){
-    int n,q;
-    scanf("%d",&n);
-    vector<int> a(n);
-    for(auto&e:a){
-        scanf("%d",&e);
-    }
-    scanf("%d",&q);
-    vector<int> m(q);
-    for(auto&e:m){
-        scanf("%d",&e);
-    }
-    set<int> lst;
-    for(int all=0;all< (1<<n);all++){
-        int chk=0;
-        for(int i=0;i<n;i++){
-            if(all>>i & 1){
-                chk+=a[i];
-            }
+    int a,n,m;
+    sc1(n);
+    int q[n];
+    bool ans[5000000];
+    rep(i,5000000) ans[i]=0;
+    rep(i,n) sc1(q[i]);
+    rep(i,pow(2,n)) {
+        bool chk[25];
+        rep(j,25) chk[j]=0;
+        int x=i;
+        rep(j,n) {
+            if (x&1) chk[j]=1;
+            x=x>>1;
         }
-        lst.insert(chk);
+        x=0;
+        rep(j,n) if (chk[j]) x+=q[j];
+        ans[x]=1;
     }
-    for(int i=0;i<q;i++){
-        if(lst.find(m[i])!=lst.end()){
-            printf("yes\n");
-        }else{
-            printf("no\n");
-        }
+    sc1(a);
+    rep(i,a) {
+        sc1(m);
+        printf("%s\n",ans[m]?"yes":"no");
     }
     return 0;
 }
