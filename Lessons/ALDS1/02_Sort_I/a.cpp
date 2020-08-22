@@ -1,42 +1,26 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-/**
- * vector<int>ar(3);
- * for(auto&e:ar){
- *     scanf("%d",&e);
- * }
- * sort(ar.begin(),ar.end())
- * int sum=accumulate(ar.begin(),ar.end(),0);
- ***/
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
 
 int main(){
-    double pai=3.141592653589;
-    int n,ans=0,chk,tmp;
-    scanf("%d",&n);
-    vector<int> ar(n);
-    for(auto&e:ar){
-        scanf("%d",&e);
-    }
-    for(;;){
-        chk=0;
-        for(int i=1;i<n;i++){
-            if(ar[i-1]>ar[i]){
-                tmp=ar[i];
-                ar[i]=ar[i-1];
-                ar[i-1]=tmp;
+    int n,m,ans=0;
+    sc1(n);
+    int a[n];
+    rep(i,n) sc1(a[i]);
+    rep(i,n) {
+        for (int j=n-1;j>0;j--) {
+            if (a[j]<a[j-1]) {
+                swap(a[j],a[j-1]);
                 ans++;
-                chk=1;
             }
         }
-        if(chk==0) break;
     }
-    for(int i=0;i<n-1;i++){
-        printf("%d ",ar[i]);
+    rep(i,n) {
+        if (i<n-1) printf("%d ",a[i]);
+        else printf("%d\n",a[i]);
     }
-    printf("%d\n",ar[n-1]);
     printf("%d\n",ans);
     return 0;
 }

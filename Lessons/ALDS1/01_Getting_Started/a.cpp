@@ -5,22 +5,26 @@ using namespace std;
 #define sc1(a)  scanf("%d",&a)
 
 int main(){
-    int n;
+    int n,m,v,ans;
     sc1(n);
     int a[n];
     rep(i,n) sc1(a[i]);
     rep(i,n) {
-        int t=i;
-        while (t>0) {
-            if (a[t]<a[t-1]) {
-                int tmp;
-                tmp=a[t];
-                a[t]=a[t-1];
-                a[t-1]=tmp;
+        v=a[i];
+        for (int k=i;k>0;k--) {
+            //printf("%d\n",k);
+            if (v<a[k-1]) {
+                a[k]=a[k-1];
+                a[k-1]=v;
+            } else {
+                a[k]=v;
+                break;
             }
-            t--;
         }
-        rep(j,n) printf("%d%c",a[j],j<n-1?' ':'\n'); 
+        rep(j,n) {
+            if (j<n-1) printf("%d ",a[j]);
+            else printf("%d\n",a[j]);
+        }
     }
     return 0;
 }
