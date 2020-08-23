@@ -1,42 +1,21 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<list>
-#include<stack>
-#include<queue>
-#include<algorithm>
 using namespace std;
 
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
 
 int main(){
-    int n;
-    scanf("%d",&n);
-    list<int> lst;
-    for(int i=0;i<n;i++){
-        char s[11];
-        int p;
-        scanf("%s",&s);
-        if(s[0]=='i'){
-            scanf("%d",&p);
-            lst.push_front(p);
-        }else if(s[6]=='F'){
-            lst.pop_front();
-        }else if(s[6]=='L'){
-            lst.pop_back();
-        }else{
-            scanf("%d",&p);
-            for(auto itr=lst.begin(); itr!=lst.end();itr++){
-                if(*itr==p){
-                    lst.erase(itr);
-                    break;
-                }
-            }
-        }
+    int n,q,ans=0;
+    sc1(n);
+    //int s[n];
+    vector <int> s(n);
+    rep(i,n) sc1(s[i]);
+    sc1(q);
+    int t[n];
+    rep(i,q) {
+        sc1(t[i]);
+        ans+=binary_search(s.begin(),s.end(),t[i]);
     }
-    int l=lst.size();
-    for(int i=0;i<l-1;i++){
-        printf("%d ",*lst.begin());
-        lst.pop_front();
-    }
-    printf("%d\n",*lst.begin());
+    printf("%d\n",ans);
     return 0;
 }

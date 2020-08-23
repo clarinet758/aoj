@@ -1,38 +1,26 @@
 #include<bits/stdc++.h>
-#include<vector>
-#include<list>
-#include<stack>
-#include<queue>
-#include<algorithm>
 using namespace std;
 
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
 
 int main(){
-    int n,q,ans=0,chk=0;
-    scanf("%d",&n);
-    vector<int> s(n);
-    for(auto&e:s){
-        scanf("%d",&e);
-    }
-    sort(s.begin(),s.end());
-
-    scanf("%d",&q);
-    vector<int> t(q);
-    for(auto&e:t){
-        scanf("%d",&e);
-    }
-    sort(t.begin(),t.end());
-
-    for(int i=0;i<q;i++){
-        for(int j=chk;j<n;j++){
-            if(t[i]==s[j]){
+    int n,q,ans=0;
+    sc1(n);
+    //int s[n];
+    vector <int> s(n);
+    rep(i,n) sc1(s[i]);
+    sc1(q);
+    int t[n];
+    rep(i,q) {
+        sc1(t[i]);
+        rep(j,n) {
+            if (s[j]==t[i]) {
                 ans++;
                 break;
-            }else if(t[i]<s[j]){
-                break;
             }
-            chk=j;
         }
+        //ans+=binary_search(s.begin(),s.end(),t[i]);
     }
     printf("%d\n",ans);
     return 0;
