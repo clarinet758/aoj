@@ -1,14 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
+
 int main(){
     int n;
-    scanf("%d",&n);
-    vector<int> a(n);
-    for (auto&e:a) scanf("%d",&e);
+    long long ans=0ll;
+    sc1(n);
+    vector <long long> a(n);
+    rep(i,n) scanf("%lld",&a[i]);
     sort(a.begin(),a.end());
-    long long t=accumulate(a.begin(),a.end(),0ll);
-    if (n==0) printf("0 0 0\n");
-    else printf("%d %d %lld\n",a[0],a[n-1],t);
+    rep(i,n) ans+=1ll*a[i];
+    printf("%lld %lld %lld\n",a[0],a[n-1], ans);
     return 0;
 }

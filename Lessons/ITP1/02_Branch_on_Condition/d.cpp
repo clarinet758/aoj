@@ -4,6 +4,7 @@ using namespace std;
 int main(){
     int w,h,x,y,r;
     scanf("%d %d %d %d %d",&w,&h,&x,&y,&r);
-    printf("%s\n",((x>=r && x+r<=w) && (y>=r && y+r<=h))?"Yes":"No");
+    if (0<=y-r && h>=y+r && 0<=x-r && w>=x+r)  printf("Yes\n");
+    else printf("No\n");
     return 0;
 }
