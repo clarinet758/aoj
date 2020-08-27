@@ -1,16 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define rep(i,n)  for(int i=0;i<n;++i)
+#define sc2(a,b)  scanf("%d %d",&a,&b)
+
 int main(){
     int h,w;
-    for (;;) {
-        scanf("%d %d",&h,&w);
-        if (h==0 && w==0) break;
-        for (int i=0;i<h;i++) {
-            for (int j=0;j<w;j++) {
-                if (j<w-1) printf("#");
-                else printf("#\n");
+    for(;;) {
+        sc2(h,w);
+        if(h==0) break;
+        rep(i,h) {
+            rep(j,w) {
+                printf("#");
             }
+            puts("");
         }
         puts("");
     }
