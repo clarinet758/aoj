@@ -1,19 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#define rep(i,n)  for(int i=0;i<n;++i)
-#define per(i,n)  for(int i=n-1;i>=0;--i)
-#define sc1(a)  scanf("%d",&a)
-#define sc2(a,b)  scanf("%d %d",&a,&b)
-#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
-#define sl1(a)  scanf("%lld",&a)
-#define sl2(a,b)  scanf("%lld %lld",&a,&b)
-#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
-#define PI 3.1415926535897932
-
 int main(){
-    double a,b,c,d;
-    scanf("%lf %lf %lf %lf",&a,&b,&c,&d);
-    printf("%.10lf\n",sqrt(pow(a-c,2)+pow(b-d,2)));
+    double x1,y1,x2,y2;
+    scanf("%lf %lf %lf %lf",&x1,&y1,&x2,&y2);
+    printf("%.10lf\n",(pow((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1),0.5)));
     return 0;
 }

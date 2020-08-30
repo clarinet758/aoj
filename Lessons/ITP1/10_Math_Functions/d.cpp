@@ -2,38 +2,30 @@
 using namespace std;
 
 #define rep(i,n)  for(int i=0;i<n;++i)
-#define per(i,n)  for(int i=n-1;i>=0;--i)
 #define sc1(a)  scanf("%d",&a)
-#define sc2(a,b)  scanf("%d %d",&a,&b)
-#define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
-#define sl1(a)  scanf("%lld",&a)
-#define sl2(a,b)  scanf("%lld %lld",&a,&b)
-#define sl3(a,b,c)  scanf("%lld %lld %lld",&a,&b,&c)
-#define PI 3.1415926535897932
 
 int main(){
-    int mod=1000000007;
     int n;
     double t=0.0;
     sc1(n);
-    vector<int> a(n);
-    vector<int> b(n);
-    for(auto&e:a) sc1(e);
-    for(auto&e:b) sc1(e);
-    rep(i,n) t+=abs(a[i]-b[i])*1.0;
-    printf("%.15lf\n",t);
-    t=0.0;
+    vector <int> x(n);
+    vector <int> y(n);
+    for(auto&e:x) sc1(e);
+    for(auto&e:y) sc1(e);
 
-    rep(i,n) t+=pow((a[i]-b[i]),2)*1.0;
-    printf("%.15lf\n",sqrt(t));
-    t=0.0;
+    rep(i,n) t+=abs(x[i]-y[i])*1.0;
+    printf("%.10lf\n",t);
+    t*=0;
 
-    rep(i,n) t+=pow(abs(a[i]-b[i]),3)*1.0;
-    printf("%.15lf\n",pow(t,1.0/3.0));
-    t=0.0;
+    rep(i,n) t+=pow((x[i]-y[i]),2);
+    printf("%.10lf\n",pow(t,0.5));
+    t*=0;
 
-    rep(i,n) t=max(t,abs(a[i]-b[i])*1.0);
-    printf("%.15lf\n",t);
-    t=0.0;
+    rep(i,n) t+=pow(abs(x[i]-y[i]),3);
+    printf("%.10lf\n",pow(t,1.0/3.0));
+    t*=0;
+
+    rep(i,n) t=max(t,abs(x[i]-y[i])*1.0);
+    printf("%.10lf\n",t);
     return 0;
 }
