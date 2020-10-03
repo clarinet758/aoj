@@ -1,35 +1,27 @@
 #include<bits/stdc++.h>
+#include<numeric>
+
 using namespace std;
 
 #define rep(i,n)  for(int i=0;i<n;++i)
-//WA 変数宣言　どこでかによって挙動に注意
-int a,b,c=0,x;
-int l[12],s[11];
-double w,p,q;
+int a,b,c,s,x;
+int l[15];
 
 int main(){
     while(scanf("%d,",&x)!=EOF) {
         l[c]=x;
-        s[c+1]=s[c]+x;
+        if (c<10) s+=x;
         c++;
         if (c < 12)  continue;
         c=0;
-        p=0.0,q=50000.0;
-        for(;;) {
-            w=(p+q)/2.0;
-            double chk=(w*l[10]+w*l[11])-(1.0*s[10]);
-            if (chk>0 && chk<0.0000001) break;
-            else if (chk>0.0000001) q=w;
-            else p=w;
+        int q=lcm(l[10],l[11]);
+        int p=(s*q/(l[10]+l[11]))*l[10];
+        //printf("%d %d %d\n",s,p,q);
+        rep(i,10) {
+            p-=(l[i]*q);
+            if (p<=0) {printf("%d\n",i+1); break;}
         }
-        double g=w*l[10];
-        rep(i,11) {
-            if (1.0*s[i]>g) {
-                printf("%d\n",i);
-                break;
-            }
-        }
-        rep(i,11) s[i]=0;
+        s=0;
     }
     return 0;
 }
