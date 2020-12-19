@@ -2,50 +2,57 @@
 using namespace std;
 
 #define rep(i,n)  for(int i=0;i<n;++i)
+#define sc1(a)  scanf("%d",&a)
 #define sc2(a,b)  scanf("%d %d",&a,&b)
 #define sc3(a,b,c)  scanf("%d %d %d",&a,&b,&c)
 #define SEG_LEN (1<<18)
 
 int seg[SEG_LEN * 2];
 
-void add (int ind,int v) {
+long long int get (int ind) {
     ind += SEG_LEN;
-    seg[ind]+=v;
+    long long int sum=0;
+    sum+=seg[ind];
     for(;;){
         ind/=2;
         if (ind==0) break;
-        seg[ind]=seg[ind*2]+seg[ind*2+1];
+        sum+=seg[ind];
     }
+    return sum;
 }
 
-int sum(int l, int r) {
+void add(int l, int r,int x) {
     l+=SEG_LEN;
     r+=SEG_LEN;
-    int ans=0;
     for(;;){
         if (l>=r) break;
         if(l%2==1){
-            ans+=seg[l];
+            seg[l]+=x;
             l++;
         }
         l/=2;
         if(r%2==1){
-            ans+=seg[r-1];
+            seg[r-1]+=x;
             r--;
         }
         r/=2;
     }
-    return ans;
 }
 
 int main(){
     int n,q;
     sc2(n,q);
     rep(i,q){
-        int a,b,c;
-        sc3(a,b,c);
-        if(a==0) add(b,c);
-        if(a==1) printf("%d\n",sum(b,c+1));
+        int a,b,c,d;
+        sc1(a);
+        if(a==0) {
+            sc3(b,c,d);
+            add(b,c+1,d);
+        }
+        if(a==1) {
+            sc1(b);
+            printf("%lld\n",get(b));
+        }
     }
     return 0;
 }
