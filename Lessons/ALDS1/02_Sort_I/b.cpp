@@ -5,24 +5,22 @@ using namespace std;
 #define sc1(a)  scanf("%d",&a)
 
 int main(){
-    int n,ans=0;
-    sc1(n);
-    vector <int> a(n);
-    for(auto&e:a) sc1(e);
+    int n,x,ans=0;
+    cin >> n;
+    vector<int> a(n);
+    for(int i=0;i<n;i++) cin >> a.at(i);
     for(int i=0;i<n-1;i++){
-        int p=a[i],q=i;
-        for(int j=i+1;j<n;j++) {
-            if (p>a[j]) {
-                p=a[j];
-                q=j;
-            }
+        x=i;
+        for(int j=i+1;j<n;j++){
+            if(a.at(j)<a.at(x))  x=j;
         }
-        if(p<a[i]) {
+        if(x!=i){
             ans++;
-            swap(a[i],a[q]);
+            swap(a.at(i),a.at(x));
         }
     }
-    rep(i,n) printf("%d%c",a[i],(i<n-1)?' ':'\n');
-    printf("%d\n",ans);
+    for(int i=0;i<n-1;i++) cout << a.at(i) << " ";
+    cout << a.at(n-1) << endl;
+    cout << ans << endl;
     return 0;
 }
