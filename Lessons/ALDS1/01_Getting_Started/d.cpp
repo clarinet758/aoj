@@ -44,13 +44,12 @@ bool sankaku(int a,int b,int c) {vector <int> t={a,b,c};sort(t.begin(),t.end());
 // 何か貼るときはココから下に
 
 int main(){
-    int mod=1e9+7;
-    int n,x,y=mod,ans=-mod;
+    int n,k,x=1e9+5,y,z,cnt=0,ans=-x;
     cin >> n;
     rep(i,n) {
-        cin >> x;
-        if(i>0) ans=max(ans,x-y);
-        y=min(y,x);
+        cin >> k;
+        if(i) ans=max(ans,k-x);
+        x=min(x,k);
     }
     print(ans);
     return 0;
