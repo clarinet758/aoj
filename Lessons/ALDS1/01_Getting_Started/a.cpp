@@ -30,6 +30,16 @@ double tilt(int x1,int y1,int x2,int y2) {return (1.0*y2-1.0*y1)/(1.0*x2-1.0*x1)
 double tri(int xa,int ya,int xb,int yb,int xc,int yc) {return (1.0*xa-1.0*xc)*(1.0*yb-1.0*yc)-(1.0*xb-1.0*xc)*(1.0*ya-1.0*yc);}
 bool sankaku(int a,int b,int c) {vector <int> t={a,b,c};sort(t.begin(),t.end()); return t.at(0)+t.at(1)>t.at(2);};
 
+void prnv(vector<int> v){
+    // vectorの中身がわからんのでcout
+    int l = (int)v.size();
+    rep(i,l){
+        if(i) cout << " ";
+        cout << v[i];
+    }
+    pp;
+}
+
 /** sort(ar.begin(),ar.end())
  * vector<vector<int>> a(5,vector<int>)
     int sum=accumulate(ar.begin(),ar.end(),0); 
@@ -38,44 +48,31 @@ bool sankaku(int a,int b,int c) {vector <int> t={a,b,c};sort(t.begin(),t.end());
     } while (next_permutation(w.begin(),w.end()));  //ex. vector <int> w= {1,2,3}; **/
 
 // 何か貼るときはココから下に
-void sort(vector<int> a, int n){
-    for(int i=1;i<n;i++){
-        int v=a[i];
-        int j=i-1;
-        while(j>=0 && a[j]>v){
-            a[j+1]=a[j];
-            j--;
-        }
-        a[j+1]=v;
-        rep(i,n) {
-            if(i) cout << " ";
-            cout << a[i];
-        }
-        pp;
-    }
-}
 
 int main(){
     int mod=1e9+7;
     int n,k,x,y,z,cnt=0,ans=0;
     bool bl=0;
+    string s,t;
     cin >> n;
     vector<int> a(n);
     rep(i,n) cin >> a.at(i);
-    rep(i,n) {
-        if(i) cout << " ";
-        cout << a[i];
+    prnv(a);
+    for (int i=1;i<n;i++){
+        for(int j=i;j>0;j--){
+            if(a[j-1]>a[j]) swap(a[j-1],a[j]);
+            else break;
+        }
+        prnv(a);
     }
-    pp;
-    sort(a,n);
 
     //print(ans);
     
-    bool yf=0; string yn="ls";
-    if(yf){// yes no 解答なら yf=1 yn を ls で大文字小文字調節 bl が　1　なら　yes
-        if(yn=="ls") if(bl) cout << "Yes";  else cout << "No";
-        if(yn=="ll") if(bl) cout << "YES";  else cout << "NO";
-        if(yn=="ss") if(bl) cout << "yes";  else cout << "no";
+    bool yf=0; int yn=0; // yf=1でyesno出力。0:yes, 10:Yes, 11:YESで大文字小文字。 blはbool
+    if(yf){
+        if(yn==0) if(bl) cout << "yes";  else cout << "no";
+        if(yn==10) if(bl) cout << "Yes";  else cout << "No";
+        if(yn==11) if(bl) cout << "YES";  else cout << "NO";
         pp;
     }
 
